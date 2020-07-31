@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table><tr><th>Title</th><th>Date</th><th>Start Time</th><th>Durations</th></tr>
+    {% for meeting in meeting_list %}
+    <tr><td>{{meeting.title}}</td><td>{{meeting.date}}</td><td>{{meeting.start_time}}</td><td>{{meeting.duration}}</td></tr>
+{% endfor %}
+
+</table>
+</body>
+</html>
