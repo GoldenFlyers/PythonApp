@@ -1,14 +1,38 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="{% static 'meetings/style.css'  %}">
 </head>
 <body>
-<table><tr><th>Title</th><th>Date</th><th>Start Time</th><th>Durations</th></tr>
+<h2>Navigation Menu</h2>
+<p>In this example, we use CSS to style the list horizontally, to create a navigation menu:</p>
+
+<ul>
+    <li><a href="{% url 'welcome'  %}">Welcome to Django</a></li>
+    <li><a href="{% url 'home'  %}">Home</a></li>
+    <li><a href="{% url 'about'  %}">About US</a></li>
+    <li><a href="{% url 'contact'  %}">Contact US</a></li>
+    <li><a href="{% url 'rooms'  %}">Room List</a></li>
+</ul>
+
+<table>
+    <tr>
+        <th>Title</th>
+        <th>Date</th>
+        <th>Start Time</th>
+        <th>Durations</th>
+    </tr>
     {% for meeting in meeting_list %}
-    <tr><td>{{meeting.title}}</td><td>{{meeting.date}}</td><td>{{meeting.start_time}}</td><td>{{meeting.duration}}</td></tr>
-{% endfor %}
+    <tr>
+        <td><a href="{% url 'detail' meeting.id %}">{{meeting.title}}</a></td>
+        <td>{{meeting.date}}</td>
+        <td>{{meeting.start_time}}</td>
+        <td>{{meeting.duration}}</td>
+    </tr>
+    {% endfor %}
 
 </table>
 </body>
