@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'meetings/style.css'  %}">
+</head>
+<body>
+<h2>Navigation Menu</h2>
+<p>In this example, we use CSS to style the list horizontally, to create a navigation menu:</p>
+<img src="{% static 'meetings/meeting.png'  %}" height="200px" width="500px">
+<ul>
+    <li><a href="{% url 'welcome'  %}">Welcome to Django</a></li>
+    <li><a href="{% url 'home'  %}">Home</a></li>
+    <li><a href="{% url 'about'  %}">About US</a></li>
+    <li><a href="{% url 'contact'  %}">Contact US</a></li>
+    <li><a href="{% url 'rooms'  %}">Room List</a></li>
+    <li><a href="{% url 'meeting_list'  %}">Meeting List</a></li>
+    <li><a href="{% url 'add_meeting'  %}">Add New Meeting</a></li>
+</ul>
+{% block content %}{% endblock %}
+</body>
+</html>

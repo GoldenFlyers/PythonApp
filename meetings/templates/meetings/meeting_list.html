@@ -1,23 +1,24 @@
-{% load static %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-    <link rel="stylesheet" href="{% static 'meetings/style.css'  %}">
-</head>
-<body>
-<h2>Navigation Menu</h2>
-<p>In this example, we use CSS to style the list horizontally, to create a navigation menu:</p>
+{% extends "meetings/base.html" %}
+{% block title %}New Meeting List{% endblock %}
+{% block content %}
+<style>
+    table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+  margin-top: 30px;
+}
 
-<ul>
-    <li><a href="{% url 'welcome'  %}">Welcome to Django</a></li>
-    <li><a href="{% url 'home'  %}">Home</a></li>
-    <li><a href="{% url 'about'  %}">About US</a></li>
-    <li><a href="{% url 'contact'  %}">Contact US</a></li>
-    <li><a href="{% url 'rooms'  %}">Room List</a></li>
-</ul>
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
 
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+</style>
 <table>
     <tr>
         <th>Title</th>
@@ -33,7 +34,5 @@
         <td>{{meeting.duration}}</td>
     </tr>
     {% endfor %}
-
 </table>
-</body>
-</html>
+{% endblock %}

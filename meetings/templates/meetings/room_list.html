@@ -1,15 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "meetings/base.html" %}
+{% block title %}New Meeting List{% endblock %}
+{% block content %}
 <h2>Rooms</h2>
-<ul>
+
     {% for room in room_list %}
-    <li>Name : {{room.name}},Room No: {{room.room_number}},Floor : {{room.floor}}</li>
+    <p>Name : {{room.name}},Room No: {{room.room_number}},Floor : {{room.floor}}</p>
     {% endfor %}
-</ul>
-</body>
-</html>
+
+{% endblock %}
